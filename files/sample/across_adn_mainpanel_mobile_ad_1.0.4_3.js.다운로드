@@ -1,0 +1,680 @@
+function fnc_adn_mobile_pinad_jQuery_info(callbackFunc) {
+    var adn_jquery_url = 'http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.js';
+    var adn_jQuery_chk_cnt = 0;
+    var adn_status_jquery = false;
+    var load_script_status = false;
+    var load_script_start = false;
+    if (!window.jQuery) {
+        var adn_jquery_yet = setInterval(function() {
+            if (window.jQuery) {
+                clearInterval(adn_jquery_yet);
+                callbackFunc()
+            }
+            if(adn_jQuery_chk_cnt<10) adn_jQuery_chk_cnt++;
+            else{
+            	
+            	if(load_script_status==false && load_script_start==false)
+            	{
+            		load_script_start = true;
+	            	var c=document.createElement("script");
+								c.type="text/javascript";
+								c.charset='UTF-8';
+								c.defer=true;
+								if(c.readyState){
+									c.onreadystatechange=function(){
+										if(c.readyState=="loaded" || c.readyState=="complete"){
+											c.onreadystatechange=null;
+											load_script_status = true;
+										}
+									}
+								}else{
+									c.onload=function(){
+										load_script_status = true;
+									}
+								}
+								c.src=adn_jquery_url;
+								document.getElementsByTagName("head")[0].appendChild(c);
+								c.onerror=function(){
+									load_script_status = false;
+								}
+								
+							}
+            }
+        }, 100)
+    } else {
+        callbackFunc()
+    }
+}
+
+function fnc_adn_mobile_pinad_slide_js(callbackFunc) {
+    var adn_jquery_url = 'https://fin.rainbownine.net/js/slick.js';
+    var adn_jQuery_chk_cnt = 0;
+    var adn_status_jquery = false;
+    var load_script_status = false;
+    var load_script_start = false;
+
+        var adn_jquery_yet = setInterval(function() {
+            	
+            	if(load_script_status==false && load_script_start==false)
+            	{
+            		load_script_start = true;
+	            	var c=document.createElement("script");
+								c.type="text/javascript";
+								c.charset='UTF-8';
+								c.defer=true;
+								if(c.readyState){
+									c.onreadystatechange=function(){
+										if(c.readyState=="loaded" || c.readyState=="complete"){
+											c.onreadystatechange=null;
+											load_script_status = true;
+						                clearInterval(adn_jquery_yet);
+						                callbackFunc()
+										}
+									}
+								}else{
+									c.onload=function(){
+										load_script_status = true;
+					                clearInterval(adn_jquery_yet);
+					                callbackFunc()
+									}
+								}
+								c.src=adn_jquery_url;
+								document.getElementsByTagName("head")[0].appendChild(c);
+								c.onerror=function(){
+									load_script_status = false;
+								}
+								
+			}
+        }, 100);
+
+}
+
+function fnc_adn_mobile_pinad_health_info(callbackFunc)
+{
+	var _adn_chk_todays = new Date();
+	var _adn_chk_dd = _adn_chk_todays.getDate();
+	var _adn_chk_mm =  (_adn_chk_todays.getMonth()+1);
+	var _adn_chk_yyyy = _adn_chk_todays.getFullYear();
+	var _adn_chk_hours = _adn_chk_todays.getHours();
+	var _adn_chk_mins = _adn_chk_todays.getMinutes();
+
+	
+	var _adn_health_chk_min = parseInt(_adn_chk_mins)+10;
+	if(parseInt(_adn_health_chk_min)>=60) {
+		_adn_health_chk_min = _adn_health_chk_min-60;
+		_adn_chk_hours = parseInt(_adn_chk_hours)+1;
+	}
+	if(parseInt(_adn_chk_hours)>23)
+	{
+		_adn_chk_hours = 0;
+		_adn_chk_mm = parseInt(_adn_chk_mm)+1;
+	}
+	if(parseInt(_adn_chk_dd)<10) _adn_chk_dd='0'+_adn_chk_dd;
+	if(parseInt(_adn_chk_mm)<10) _adn_chk_mm='0'+_adn_chk_mm;	
+	
+	if(parseInt(_adn_chk_hours)<10) _adn_chk_hours='0'+_adn_chk_hours;
+	
+	if(parseInt(_adn_chk_mins)<10) _adn_chk_mins='0'+_adn_chk_mins;
+	
+	if(parseInt(_adn_health_chk_min)<10) _adn_health_chk_min='0'+_adn_health_chk_min;
+	
+	_adn_chk_full_date = _adn_chk_yyyy+_adn_chk_mm+_adn_chk_dd+_adn_chk_hours+_adn_chk_mins;
+	_adn_health_chk_full_date = _adn_chk_yyyy+_adn_chk_mm+_adn_chk_dd+_adn_chk_hours+_adn_health_chk_min;
+	
+	var adn_health_val = localStorage.getItem('adn_health_chk_time');
+	if (typeof(adn_health_val) != "undefined" && adn_health_val != null) 
+	{
+		if(parseInt(_adn_chk_full_date) < parseInt(adn_health_val)) return null;
+	}
+	
+	if (window.ActiveXObject) {
+		try { 
+			var xhr = new ActiveXObject("Msxml2.XMLHTTP"); 
+		} catch(e) { 
+			try { 
+				var xhr = new ActiveXObject("Microsoft.XMLHTTP"); 
+			} catch(e1) { 
+				var xhr = null; 
+			} 
+		}
+	} else if (window.XMLHttpRequest) { 
+		var xhr = new XMLHttpRequest(); 
+	} else {
+		var xhr = null;
+	}
+	
+
+	
+
+	try{
+			
+		if(adn_health_flag!="loading" && adn_health_flag!="ok"){
+			if (typeof xhr  !== "null") {
+				xhr.open('GET', 'https://kn.acrosspf.com/adn_health_jsonp_chk.ad?g=tags&t='+Math.floor(Math.random()*99999999999));
+				xhr.timeout = 2000;
+				
+				xhr.onload = function () {
+					
+					if(xhr.readyState == 4){
+						if(xhr.status == 200){
+							adn_health_flag = "ok";
+							localStorage.removeItem('adn_health_chk_time');
+				  		callbackFunc();	
+				  	}
+				  }
+				};
+				xhr.onerror = function() {
+					adn_health_flag = "error";
+					localStorage.setItem('adn_health_chk_time', _adn_health_chk_full_date);
+				  xhr.abort();
+				};
+				xhr.ontimeout = function (e) {
+					adn_health_flag = "timeout";
+					localStorage.setItem('adn_health_chk_time', _adn_health_chk_full_date);
+				  xhr.abort();
+				};
+				adn_health_flag = "loading";
+				xhr.send(null);
+			}
+		}
+		else if(adn_health_flag=="ok"){
+			localStorage.removeItem('adn_health_chk_time');
+  		callbackFunc();	
+		}
+		else if(adn_health_flag=="loading"){
+        var adn_health_yet = setInterval(function() {
+            if (adn_health_flag=="ok") {
+                clearInterval(adn_health_yet);
+                callbackFunc()
+            }
+        }, 100)
+    }
+			
+	}catch(e){}
+}
+
+if(typeof adn_health_flag=="undefined") var adn_health_flag = "";
+
+var _adn_mobile_pinad_hours = "24";
+var d = new Date();
+var now_hours = d.getHours();
+var is_mobile_pinad_status = true;
+var _adn_mobile_pinad_r = document.referrer;
+var _adn_mobile_pinad_h = document.location.pathname;
+var _adn_mobile_pinad_effect = 0;
+var _adn_mobile_pinad_auto_close_rate = "";
+var _adn_mobile_pinad_close_rate = "";
+var _adn_mobile_pinad_title_slide = "";
+var _adn_mobile_pinad_title_slideIndex = 0;
+var _adn_mobile_pinad_bg = 0;
+var _adn_mobile_pinad_timer = "";
+
+var _adn_mobile_pinad_search_keyword = "";
+var _adn_mobile_slide_js_status = false;
+
+function fn_closing_mobile_pinad() {
+	jQuery("#adn_mobliel_pinad_bg_wrap").fadeOut(0);
+	if(_adn_mobile_pinad_effect==0) jQuery("#adn_mobliel_pinad_wrap").fadeOut(0);
+	else  jQuery("#adn_mobliel_pinad_wrap").fadeOut('slow');
+  	jQuery("#adn_mobliel_pinad_wrap").css({"display":"none"});                	
+
+	if (_adn_mobile_pinad_hours != "0") {
+		fn_adn_mobile_pinad_setCookie("adnMobilePinAd", "1", _adn_mobile_pinad_hours)
+	}
+}
+
+function js_adn_mobile_pinad_today() {
+    jQuery("#adn_mobliel_pinad_wrap").hide();
+    if (document.getElementById('pinad_today').checked) {
+        fn_adn_mobile_pinad_setCookie("adnMobilePinAd", "9", 24 - parseInt(now_hours))
+    } else {
+         if (_adn_mobile_pinad_hours != "0") {
+            fn_adn_mobile_pinad_setCookie("adnMobilePinAd", "1", _adn_mobile_pinad_hours)
+         }
+    }
+}
+
+function fn_adn_mobile_pinad_getCookie(a) {
+    var b = a + "=";
+    var x = 0;
+    while (x <= document.cookie.length) {
+        var y = (x + b.length);
+        if (document.cookie.substring(x, y) == b) {
+            if ((endOfCookie = document.cookie.indexOf(";", y)) == -1) {
+                endOfCookie = document.cookie.length
+            }
+            return unescape(document.cookie.substring(y, endOfCookie))
+        }
+        x = document.cookie.indexOf(" ", x) + 1;
+        if (x == 0) {
+            break
+        }
+    }
+    return ""
+}
+
+function fn_adn_mobile_pinad_setCookie(a, b, c) {
+    var d = new Date();
+    d.setTime(d.getTime() + (1000 * 60 * 60 * c));
+    document.cookie = a + "=" + b + ";path=/;expires=" + d.toGMTString() + ";"
+}
+
+
+function adn_mobile_pinad_frm_send(c, d) {
+    var a = document.createElement("iframe");
+    a.frameBorder = "0";
+    a.scrolling = "no";
+    a.width = "0px";
+    a.height = "0px";
+    a.setAttribute("src", d);
+    document.getElementById(c).appendChild(a)
+}
+
+
+function adn_mobile_pinad_objectValues(obj) {
+    var res = [];
+    for (var i in obj) {
+        if (obj.hasOwnProperty(i)) {
+            res.push(obj[i])
+        }
+    }
+    return res
+}
+
+
+
+function adn_mobile_pinad_carousel() {
+  var i;
+  var x = document.getElementsByClassName("adn_pinad_title_Slides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none"; 
+  }
+  _adn_mobile_pinad_title_slideIndex++;
+  if (_adn_mobile_pinad_title_slideIndex > x.length) {_adn_mobile_pinad_title_slideIndex = 1} 
+  x[_adn_mobile_pinad_title_slideIndex-1].style.display = "block"; 
+  setTimeout(adn_mobile_pinad_carousel, 1500); 
+}
+		
+
+fnc_adn_mobile_pinad_jQuery_info(function() {
+	
+	fnc_adn_mobile_pinad_health_info(function() {
+		
+		fnc_adn_mobile_pinad_slide_js(function() {
+			try {
+			    if (_adn_mobile_pinad_r.indexOf("naver.com") != -1) {
+			        var q = fnc_closed_getParameterByName("query", _adn_mobile_pinad_r);
+			        if (q) {
+			            _adn_mobile_pinad_search_keyword = q;
+			            var _adn_mobile_pinad_k = function() {
+			                try {
+			                    if (q != '') {
+			                        q = q.replace(/\<|\>|\"|\'|\%|\;|\(|\)|\&|\+|\-/g, "");
+			                        q = encodeURIComponent(q);
+			                        if (q != '') {
+			                            var u = 'https://kn.acrosspf.com/adn_k.ad?k=' + q;
+			                            jQuery.ajax({
+			                                type: 'get',
+			                                url: u,
+			                                data: {
+			                                    todo: "jsonp"
+			                                },
+			                                dataType: "jsonp",
+			                                crossDomain: true,
+			                                cache: false,
+			                                success: function(d) {}
+			                            })
+			                        }
+			                    }
+			                } catch (e) {}
+			            };
+			            $(document).ready(_adn_mobile_pinad_k)
+			        }
+			    } else if (_adn_mobile_pinad_r.indexOf("daum.net") != -1) {
+			        var q = fnc_closed_getParameterByName("q", _adn_mobile_pinad_r);
+			        if (q) {
+			            _adn_mobile_pinad_search_keyword = q;
+			            var _adn_mobile_pinad_k = function() {
+			                try {
+			                    if (q != '') {
+			                        q = q.replace(/\<|\>|\"|\'|\%|\;|\(|\)|\&|\+|\-/g, "");
+			                        q = encodeURIComponent(q);
+			                        if (q != '') {
+			                            var u = 'https://kn.acrosspf.com/adn_k.ad?k=' + q;
+			                            jQuery.ajax({
+			                                type: 'get',
+			                                url: u,
+			                                data: {
+			                                    todo: "jsonp"
+			                                },
+			                                dataType: "jsonp",
+			                                crossDomain: true,
+			                                cache: false,
+			                                success: function(d) {}
+			                            })
+			                        }
+			                    }
+			                } catch (e) {}
+			            };
+			            $(document).ready(_adn_mobile_pinad_k)
+			        }
+			    } else if (_adn_mobile_pinad_r.indexOf("nate.com") != -1) {
+			        var q = fnc_closed_getParameterByName("q", _adn_mobile_pinad_r);
+			        if (q) {
+			            _adn_mobile_pinad_search_keyword = q;
+			            var _adn_mobile_pinad_k = function() {
+			                try {
+			                    if (q != '') {
+			                        q = q.replace(/\<|\>|\"|\'|\%|\;|\(|\)|\&|\+|\-/g, "");
+			                        q = encodeURIComponent(q);
+			                        if (q != '') {
+			                            var u = 'https://kn.acrosspf.com/adn_k.ad?k=' + q;
+			                            jQuery.ajax({
+			                                type: 'get',
+			                                url: u,
+			                                data: {
+			                                    todo: "jsonp"
+			                                },
+			                                dataType: "jsonp",
+			                                crossDomain: true,
+			                                cache: false,
+			                                success: function(d) {}
+			                            })
+			                        }
+			                    }
+			                } catch (e) {}
+			            };
+			            $(document).ready(_adn_mobile_pinad_k)
+			        }
+			    } else if (_adn_mobile_pinad_r.indexOf("google.co.kr") != -1) {
+			        var q = fnc_closed_getParameterByName("q", _adn_mobile_pinad_r);
+			        if (q) {
+			            _adn_mobile_pinad_search_keyword = q;
+			            var _adn_mobile_pinad_k = function() {
+			                try {
+			                    if (q != '') {
+			                        q = q.replace(/\<|\>|\"|\'|\%|\;|\(|\)|\&|\+|\-/g, "");
+			                        q = encodeURIComponent(q);
+			                        if (q != '') {
+			                            var u = 'https://kn.acrosspf.com/adn_k.ad?k=' + q;
+			                            jQuery.ajax({
+			                                type: 'get',
+			                                url: u,
+			                                data: {
+			                                    todo: "jsonp"
+			                                },
+			                                dataType: "jsonp",
+			                                crossDomain: true,
+			                                cache: false,
+			                                success: function(d) {}
+			                            })
+			                        }
+			                    }
+			                } catch (e) {}
+			            };
+			            $(document).ready(_adn_mobile_pinad_k)
+			        }
+			    } else if (_adn_mobile_pinad_r.indexOf("zum.com") != -1) {
+			        var q = fnc_closed_getParameterByName("query", _adn_mobile_pinad_r);
+			        if (q) {
+			            _adn_mobile_pinad_search_keyword = q;
+			            var _adn_mobile_pinad_k = function() {
+			                try {
+			                    if (q != '') {
+			                        q = q.replace(/\<|\>|\"|\'|\%|\;|\(|\)|\&|\+|\-/g, "");
+			                        q = encodeURIComponent(q);
+			                        if (q != '') {
+			                            var u = 'https://kn.acrosspf.com/adn_k.ad?k=' + q;
+			                            jQuery.ajax({
+			                                type: 'get',
+			                                url: u,
+			                                data: {
+			                                    todo: "jsonp"
+			                                },
+			                                dataType: "jsonp",
+			                                crossDomain: true,
+			                                cache: false,
+			                                success: function(d) {}
+			                            })
+			                        }
+			                    }
+			                } catch (e) {}
+			            };
+			            $(document).ready(_adn_mobile_pinad_k)
+			        }
+			    }
+			} catch (exception) {}
+				
+				
+			if(/Mobi/.test(navigator.userAgent)==true)
+			{
+			    var a = fn_adn_mobile_pinad_getCookie("adnMobilePinAd");
+			    if (a == "") {
+			   
+							jQuery("<link/>", { rel: "stylesheet",	type: "text/css",	charset: "utf-8",	href: "https://ff.adteip.net/css/across_adn_mobile_mainad_1.0.4.css?ti=" + Math.floor(Math.random() * 99999999999)}).appendTo("head");
+
+								try {
+								    var ui = adn_mobile_pinad_objectValues(adn_mobile_pinad_param)[0][0]["ui"];
+								    var ci = adn_mobile_pinad_objectValues(adn_mobile_pinad_param)[0][0]["ci"];
+								    var gi = adn_mobile_pinad_objectValues(adn_mobile_pinad_param)[0][0]["gi"];
+								    var p_url = "https://kn.acrosspf.com/adn_mobile_mainpanel_jsonp_1.0.4.ad?u=" + ui + "&ci=" + ci + "&gi=" + gi  + "&k=" + encodeURIComponent(_adn_mobile_pinad_search_keyword) + "&ti=" + Math.floor(Math.random() * 99999999999)
+								} catch (e) {}
+									
+			
+								if (!document.getElementById("adn_mobliel_pinad_wrap")) {
+								    var _adn_tmp_div = document.createElement("DIV");
+								    _adn_tmp_div.setAttribute("id", "adn_mobliel_pinad_wrap");
+								    document.getElementsByTagName("body")[0].appendChild(_adn_tmp_div)
+								}
+								
+							  try {
+							      jQuery.ajax({
+							          url: p_url,
+							          dataType: 'jsonp',
+							          success: function(data) {
+							              if (data.status == "0") {
+							                  jQuery("#adn_mobliel_pinad_wrap").hide();
+							                  is_mobile_pinad_status = false
+							              } else {
+							                  is_mobile_pinad_status = true;
+							                  _adn_mobile_pinad_hours = data.pinad_close_rate;
+							                  _adn_mobile_pinad_auto_close_rate = data.pinad_auto_close_rate;
+							                  _adn_mobile_pinad_sizemode = data.pinad_sizemode;
+							                  _adn_mobile_pinad_slides = data.pinad_slides;
+							                  _adn_mobile_pinad_title_slide = data.pinad_title_slide;
+							                  _adn_mobile_pinad_bottom = data.pinad_bottom;
+							                  _adn_mobile_pinad_effect = 3;
+							                  
+							                  _adn_mobile_pinad_bg =  data.pinad_bg;
+												  
+												  if(_adn_mobile_pinad_bg==1)
+												  {                
+										            if (!document.getElementById("adn_mobliel_pinad_bg_wrap")) {
+										                var _adn_tmp_div = document.createElement("DIV");
+										                _adn_tmp_div.setAttribute("id", "adn_mobliel_pinad_bg_wrap");
+										                _adn_tmp_div.setAttribute("class", "adn_dark_bg");
+										                document.getElementsByTagName("body")[0].appendChild(_adn_tmp_div)
+										            }
+										         }  
+								                  if(_adn_mobile_pinad_sizemode==1){
+								                  	jQuery("#adn_mobliel_pinad_wrap").css({"position":"absolute","display":"none", "top":"0","height":"100%", "width":"100%", "z-index":"9999999"});
+								                  }else  if(_adn_mobile_pinad_sizemode==2){
+								                  	jQuery("#adn_mobliel_pinad_wrap").css({"position":"absolute","display":"none", "width":"100%", "z-index":"9999999"});
+								                  }else  if(_adn_mobile_pinad_sizemode==3){
+								                  	jQuery("#adn_mobliel_pinad_wrap").css({"position":"absolute","display":"none", "width":"100%", "z-index":"9999999"});
+								                  }
+															    
+								                  jQuery("#adn_mobliel_pinad_wrap").html(data.pinad_infos);
+	 													if(_adn_mobile_pinad_sizemode==3){
+								                  	jQuery(".pinad_bubble_box").css({ "bottom":_adn_mobile_pinad_bottom+"px"});
+								                  
+								                  }
+								                  if(_adn_mobile_pinad_auto_close_rate!="" && parseInt(_adn_mobile_pinad_auto_close_rate)>0)
+								                  {
+														        var adn_mobile_pinad_autoclosed_yet = setInterval(function() {
+														        	
+																jQuery("#adn_mobliel_pinad_wrap").fadeOut('slow');
+																jQuery("#adn_mobliel_pinad_wrap").css({"display":"none"});
+																						
+														            clearInterval(adn_mobile_pinad_autoclosed_yet);
+														        }, parseInt(_adn_mobile_pinad_auto_close_rate)*1000);
+								                  }
+							                  
+							                  
+														if(is_mobile_pinad_status==true)
+														{
+														      if(_adn_mobile_pinad_title_slide!=0)
+														      {
+																		
+																		adn_mobile_pinad_carousel();
+														      }
+														      
+														      jQuery("#adn_mobliel_pinad_wrap").fadeIn( 'fast', function(){ 
+														      		//console.log("wrap display");
+														      });
+
+																	if(_adn_mobile_pinad_slides=="1")
+																	{
+																		if(_adn_mobile_pinad_sizemode==3){
+																			var $status = jQuery('.pinad_info_box');
+																			var $slickElement = jQuery('.pinad_goods_Slider');
+																			
+																         goods_slide_status =  jQuery(".pinad_goods_Slider").slick({
+																              dots: true,
+																              autoplay: true,
+																              autoplaySpeed: 3000,
+																              infinite: true,
+																              slidesToShow: 1,
+																              slideswToScroll: 1,
+																              arrows: false,
+																              draggable : false,
+																          });
+																          
+																          try{
+																		     jQuery('.pinad_goods_Slider').on('afterChange', function(event, slick, currentSlide, nextSlide){
+																		         // no dots -> no slides
+																				  if(!slick.$dots){
+																				    return;
+																				  }
+																				
+																				  //currentSlide is undefined on init -- set it to 0 in this case (currentSlide is 0 based)
+																				  var i = (currentSlide ? currentSlide : 0) + 1;
+																				  // use dots to get some count information
+																				  $status.text(i + '/' + (slick.$dots[0].children.length));
+																		     });
+																		    }catch(e){
+																				jQuery( ".pinad_goods_Slider" ).bind('afterChange', function(event, slick, currentSlide, nextSlide){
+																		         // no dots -> no slides
+																				  if(!slick.$dots){
+																				    return;
+																				  }
+																				
+																				  //currentSlide is undefined on init -- set it to 0 in this case (currentSlide is 0 based)
+																				  var i = (currentSlide ? currentSlide : 0) + 1;
+																				  // use dots to get some count information
+																				  $status.text(i + '/' + (slick.$dots[0].children.length));
+																		     });
+																		    }
+																		}
+																		else
+																		{
+																         goods_slide_status =  jQuery(".pinad_goods_Slider").slick({
+																              dots: true,
+																              autoplay: true,
+																              autoplaySpeed: 3000,
+																              infinite: true,
+																              slidesToShow: 1,
+																              slideswToScroll: 1,
+																              arrows: false,
+																              draggable : false,
+																          });
+																		}
+
+																	}
+																	else if(_adn_mobile_pinad_slides=="2")
+																	{
+																		
+																		if(_adn_mobile_pinad_sizemode==3)
+																		{
+																			var $status = jQuery('.pinad_info_box');
+																			var $slickElement = jQuery('.pinad_feed_Slider');
+																			
+																         feed_slide_status =  jQuery(".pinad_feed_Slider").slick({
+																              dots: true,
+																              autoplay: true,
+																              autoplaySpeed: 3000,
+																              infinite: true,
+																              slidesToShow: 1,
+																              slideswToScroll: 1,
+																              arrows: false,
+																              draggable : false,
+																          });
+																          try{
+																		     jQuery('.pinad_feed_Slider').on('afterChange', function(event, slick, currentSlide, nextSlide){
+																		         // no dots -> no slides
+																				  if(!slick.$dots){
+																				    return;
+																				  }
+																				
+																				  //currentSlide is undefined on init -- set it to 0 in this case (currentSlide is 0 based)
+																				  var i = (currentSlide ? currentSlide : 0) + 1;
+																				  // use dots to get some count information
+																				  $status.text(i + '/' + (slick.$dots[0].children.length));
+																		     });
+																		    }catch(e){
+																				jQuery( ".pinad_feed_Slider" ).bind('afterChange', function(event, slick, currentSlide, nextSlide){
+																		         // no dots -> no slides
+																				  if(!slick.$dots){
+																				    return;
+																				  }
+																				
+																				  //currentSlide is undefined on init -- set it to 0 in this case (currentSlide is 0 based)
+																				  var i = (currentSlide ? currentSlide : 0) + 1;
+																				  // use dots to get some count information
+																				  $status.text(i + '/' + (slick.$dots[0].children.length));
+																		     });
+																		    }
+																		}
+																		else
+																		{
+																         feed_slide_status =  jQuery(".pinad_feed_Slider").slick({
+																              dots: true,
+																              autoplay: true,
+																              autoplaySpeed: 3000,
+																              infinite: true,
+																              slidesToShow: 1,
+																              slideswToScroll: 1,
+																              arrows: false,
+																              draggable : false,
+																          });
+
+																		}
+																	}
+	
+
+														      imp_url = "https://kn.acrosspf.com/log/pinad_imp.ad?ui=" + ui + "&ci=" + ci + "&gi=" + gi + "&rnd=" + Math.floor(Math.random() * 99999999999);
+														      var imp_id = "adn_pinad_imp_" + Math.floor(Math.random() * 99999999999);
+														      var a = document.createElement("DIV");
+														      a.setAttribute("id", imp_id);
+														      a.setAttribute("style", "display:none;width:0px;height:0px;");
+														      document.getElementById("adn_mobliel_pinad_wrap").appendChild(a);
+														      adn_mobile_pinad_frm_send(imp_id, imp_url);
+														}
+						           		}
+							          },
+							          error: function(xhr) {
+							              jQuery("#adn_mobliel_pinad_wrap").hide();
+							              is_mobile_pinad_status = false
+							          }
+							      })
+							  } catch (e) {}
+
+
+
+    
+					}
+			}	
+		});
+	});
+	
+});
