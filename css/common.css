@@ -1,0 +1,27 @@
+@charset "utf-8";
+/* TOCOBO PJ 공통모듈 CSS - common.css */
+/* 상단영역, 하단영역 반복디자인 */
+
+/************* 상단영역 *************/
+.top{
+    height: 145px;
+}
+
+.gnb{
+    width: 428px;
+    margin: 0 auto;
+}
+
+.logo img{
+    width: 194px;
+    height: 34px;
+}
+
+.gnb a{
+    font-size: 10px;
+}
+/************* 하단영역 *************/
+.info {
+    position: relative;
+    height: 488px;
+}
