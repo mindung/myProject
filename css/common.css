@@ -4,22 +4,37 @@
 
 /************* 상단영역 *************/
 .top{
-    height: 145px;
+    position: relative;
+    height: 140px;
 }
 
 .gnb{
+    position: absolute;
     width: 428px;
     margin: 0 auto;
 }
 
+.logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
 .logo img{
-    width: 194px;
-    height: 34px;
+    width: 100%;
 }
 
 .gnb a{
     font-size: 10px;
 }
+
+.menu{
+    /* position: relative; */
+    display: inline;
+    width: 120px;
+    height: 40px;
+}
+
 /************* 하단영역 *************/
 .info {
     position: relative;
