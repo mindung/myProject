@@ -9,15 +9,24 @@
 }
 
 .gnb{
-    position: absolute;
-    width: 428px;
-    margin: 0 auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.gnb ul{
+    display: flex;
+    justify-content: center;
+}
+.gnb li{
+    margin: 0 10px;
 }
 
 .logo {
     position: absolute;
     top: 50%;
     left: 50%;
+    transform: translate(-50%,-50%);
 }
 
 .logo img{
@@ -29,10 +38,10 @@
 }
 
 .menu{
-    /* position: relative; */
-    display: inline;
-    width: 120px;
-    height: 40px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
 }
 
 /************* 하단영역 *************/
