@@ -6,7 +6,7 @@
 .top {
     background-color: rgb(240, 251, 255);
     position: relative;
-    height: 140px;
+    height: 105px;
 }
 
 .gnb {
@@ -46,6 +46,7 @@
     text-align: right;
     margin-right: 20px;
 }
+
 .menu img {
     width: 3rem;
 }
@@ -53,45 +54,17 @@
     margin-left: 10px;
 }
 
-/* 메인 영역 */
-.main .mainImg {
-    position: absolute;
-    width: 1400px;
-    height: 780px;
+.gnb>ul>li>a{
+    transition: height .4s ease-out;
+}
+.gnb>ul>li>a:hover::after {
+    content: '';
+    display: block;
+    border-bottom: 2px solid red;
+    /* transition: all .4s; */
 }
 
-/* .main .m1{
-    top: 0; 
-    /* position: relative;
-} */
 
-.main .txt {
-    position: relative;
-    transform: translateY(-50%);
-    display: flex;
-    flex-direction: column;
-
-    /* width: max-content; */
-    /* height: max-content;    */
-}
-
-.main h1,
-.main p {
-    color: red;
-}
-
-/* .main h1:,
-.main p {
-    color: blue;
-} */
-
-.main .cB {
-    color:darkblue;
-}
-.main h1{
-    font-weight: bold;
-    padding-bottom: 30px;
-}
 /************* 하단영역 *************/
 .info {
     position: relative;

@@ -6,3 +6,78 @@
 @import url(core.css);
 @import url(common.css);
 
+
+/* 메인 영역 */
+.main{
+    position: relative;
+}
+
+.main img {
+    /* position: absolute; */
+    width: 100%;
+    box-sizing: border-box;
+    max-height: 780px;
+}
+
+.txts{
+    /* display: none; */
+    /* position: relative; */
+    width: 100%;
+    height: auto;
+    bottom: 0;
+}
+
+.main .txt {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    transform: translateY(-50%);
+
+    /* width: max-content; */
+    /* height: max-content;    */
+
+}
+
+.main h1,
+.main p {
+    font-weight: bold;
+    color: red;
+    width: 100%;
+}
+
+.main .cB {
+    color:darkblue;
+}
+/* .main h1:,
+.main p {
+    color: blue;
+} */
+
+
+.main h1{
+   
+    padding-bottom: 30px;
+}
+ 
+/* ____________________________________________ */
+
+.cbx.col-6 {
+    padding: 50px 50px;
+}
+
+.pt1{
+    position: relative;
+    display: flex;
+    width: 100%;
+
+}
+
+.main img{
+    /* position: absolute; */
+    /* display: block; */
+    border-radius: 10px;
+    width: 100%;
+    vertical-align: middle;
+    /* padding-top: 50%; */
+    /* margin: 0; */
+}
