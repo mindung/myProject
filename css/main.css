@@ -8,9 +8,6 @@
 
 
 /* 메인 영역 */
-.main{
-    position: relative;
-}
 
 .main img {
     /* position: absolute; */
@@ -28,26 +25,25 @@
 }
 
 .main .txt {
-    position: absolute;
+    /* position: absolute;
     display: flex;
     flex-direction: column;
-    transform: translateY(-50%);
+    transform: translateY(-50%); */
 
-    /* width: max-content; */
+    width: max-content;
     /* height: max-content;    */
 
 }
 
-.main h1,
-.main p {
+.main h1, .main p {
     font-weight: bold;
-    color: red;
+    color: #DC272D;
     width: 100%;
 }
 
-.main .cB {
-    color:darkblue;
-}
+/* .main .cB {
+    color:#009baede;
+} */
 /* .main h1:,
 .main p {
     color: blue;
@@ -55,21 +51,20 @@
 
 
 .main h1{
-   
     padding-bottom: 30px;
 }
  
+
 /* ____________________________________________ */
 
-.cbx.col-6 {
+.pt1 .cbx.col-6 {
     padding: 50px 50px;
 }
 
 .pt1{
-    position: relative;
     display: flex;
     width: 100%;
-
+    margin: 140px 0 0;
 }
 
 .main img{
@@ -80,4 +75,36 @@
     vertical-align: middle;
     /* padding-top: 50%; */
     /* margin: 0; */
+} 
+
+.cbx.col-6:nth-child(2){
+    display: flex;
 }
+.p1 .pt2_cont{
+
+}
+
+/*  _____________________________________ */
+
+.pt2{
+    position: relative;
+    margin: 130px 0 0;
+    padding: 100px 0 90px;
+    /* display: flex; */
+    width: 100%;
+}
+
+.pt2 h1, p{
+    text-align: center;
+}
+.pt2 h1{
+    margin: 0 0 20px;
+}
+
+.pt2 p{
+    color:#009baede
+}
+.cbx.col-12:nth-child(2){
+    height: 680px;
+}
+
