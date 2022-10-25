@@ -80,16 +80,13 @@
 .cbx.col-6:nth-child(2){
     display: flex;
 }
-.p1 .pt2_cont{
-
-}
 
 /*  _____________________________________ */
 
 .pt2{
-    position: relative;
-    margin: 130px 0 0;
-    padding: 100px 0 90px;
+    /* position: relative; */
+    margin: 100px 0 0;
+    padding: 50px 0 90px;
     /* display: flex; */
     width: 100%;
 }
@@ -101,10 +98,29 @@
     margin: 0 0 20px;
 }
 
-.pt2 p{
+.titTop p{
     color:#009baede
 }
 .cbx.col-12:nth-child(2){
     height: 680px;
 }
 
+
+/* _______________ */
+
+.cbx.col-12.titTop {
+    padding: 0 0 70px;
+}
+
+.cont4 ul{
+    display: flex;
+    box-sizing: content-box;
+    justify-content: space-around;
+
+}
+
+/* ___________________________ 리뷰 + 제품 */
+.imgbox img{
+    width: 500px;
+    height: 350px;
+}
