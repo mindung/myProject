@@ -14,6 +14,11 @@ body *{
     max-width: 1400px;
     margin: 0 auto;
     display: flex;
+    flex-wrap: wrap;
+}
+.ct4 .cbx{
+    flex: 1;
+    flex-basis: 100%;
 }
 
 .main {
