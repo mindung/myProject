@@ -13,14 +13,33 @@
 <style>
     
     .ct1{
-        /* position: absolute; */
-        /* flex: 1;
-        top: 50%;
-        left: 50%; 
-        transform: translate(-50%,-50%);
-        line-height: 1.5; */
+        position: relative;
+        width: 100%;    
+        background: #DC272D;
     }
- 
+
+    .cont.ibx:first-child{
+        color: #FFF;
+    }
+
+    .ctBx{
+        position: absolute;
+        transform: translate(39%, 130%)
+    }
+    .txts, .logo-bottom{
+        /* position: absolute; */
+        top: 50%;
+        text-align: center;
+        
+    }
+    .txts{
+        top: 50%;
+    }
+    
+    .logo-bottom{
+        top: 70%;
+        left: 50%;
+    }
     /* .typing { */
     /* display: inline-block; */
     /* font-size: 80px; */
@@ -31,11 +50,36 @@
     /* letter-spacing: 0;  */
      /* } */
 
-    .typing-txt{
+    .typing-txt, .typing{
         font-size: 80px;
         text-align: center;
     }
 
+    .typing{
+        /* 임시로 일단 안보이게 해놓음 */
+        display: none;
+    }
+
+    .contText{
+        padding-top: 60px;
+        font-size: 27px;
+        color: #fff;
+        font-weight: 400;
+        line-height: 1;
+        /* opacity: 0; */
+    }
+
+    .logo-bottom p {
+    font-size: 32px;
+    color: #fff;
+    line-height: 43px;
+    text-align: center;
+    letter-spacing: 0;
+    font-family: 'Source Serif Pro',serif;
+    font-weight: 300;
+    font-style: italic;
+}
+    /* ___________________________________ */
     .circle {
         fill:none;
         stroke:#DC272D;
@@ -74,13 +118,13 @@
         position: relative;
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: space-evenly;
         width: 100%;
 
     }
 
     .txt-inner .p {
-    display: block;
+    /* display: block; */
     /* margin-block-start: 1em;
     margin-block-end: 1em;
     margin-inline-start: 0px;
@@ -98,10 +142,27 @@
     }
     
     .txt-inner{
-        position: absolute;
-        top: 180%
-        /* left: 50%;
-        transform: translateX(-50%);   */
+        display: inline-block;
+        font-size: 30px;
+        font-weight: 400;
+        color: #DC272D;
+        text-align: center;
+        top: -50px;
+        /* opacity: 0; */
+        font-family: 'Source Serif Pro',serif;
+        font-weight: 600;
+        font-style: italic;
+        
+    }
+    
+    .txt-inner {
+        width: 100%;
+        height: 100%;    
+        background-color: #DC272D;
+    }
+    /*  _____________________  */
+    .main.cont2{
+        background-color: #EEF8ff;
     }
 </style>
 
@@ -163,23 +224,25 @@
         <!-- 2-1 상단 슬라이드 내용 -->
         <main class="cont ibx">
             <div class="main ct1">
-                <div class="txts">
-                    <div class="pc_txt">
-                        <h2 class="typing-txt"> Follow Your Intuition</h2>
-                        <p class="typing"> Follow Your Intuition</p>
+                <div class="ctBx">
+                    <div class="txts">
+                        <div class="pc_txt">
+                            <h2 class="typing-txt"> Follow Your Intuition</h2>
+                            <p class="typing"> Follow Your Intuition</p>
+                        </div>
+                        <!-- <div class="mo_txt">
+                            <p id="sec2title1"><span class="Typewriter__wrapper"> Follow </span></p><p class="typing2"> Follow </p>
+                            <p id="sec2title2"><span class="Typewriter__wrapper">Your Intuition</span></p><p class="typing3">Your Intuition</p>
+                            <span>
+                        </span></div> -->
+                        <h3 class="contText">통찰력을 바탕으로 명료한 제품을 만듭니다</h3>
                     </div>
-                    <!-- <div class="mo_txt">
-                        <p id="sec2title1"><span class="Typewriter__wrapper"> Follow </span></p><p class="typing2"> Follow </p>
-                        <p id="sec2title2"><span class="Typewriter__wrapper">Your Intuition</span></p><p class="typing3">Your Intuition</p>
-                        <span>
-                    </span></div> -->
-                    <h3>통찰력을 바탕으로 명료한 제품을 만듭니다</h3>
+                    <div class="logo-bottom">
+                        <p>#Insight</p>
+                        <p>#Intuition</p>
+                    </div>
+    
                 </div>
-                <div class="logo-bottom">
-                    <p>#Insight</p>
-                    <p>#Intuition</p>
-                </div>
-
             </div>
         </main>
         <!-- 브랜드 설명1 -->
@@ -201,9 +264,7 @@
                         <div class="circle">
                             <svg class="progress-circle" height="266" width="266"><ellipse cx="133" cy="133" rx="132" ry="132"></ellipse></svg></div>
                         <div class="txt">
-                            <div class="txt-inner">
-                                <p>Clarity</p>
-                            </div>
+                                <p  class="txt-inner">Clarity</p>
                         </div>
                     </div>
                     <div class="txt2">
@@ -217,10 +278,8 @@
                         <div class="circle">
                             <svg class="progress-circle" height="266" width="266"><ellipse cx="133" cy="133" rx="132" ry="132"></ellipse></svg></div>
                         <div class="txt">
-                            <div class="txt-inner">
-                                <p>Modernity</p>
-                            </div>
-                        </div>
+                            <p class="txt-inner">Modernity</p>
+                         </div>  
                     </div>
                     <div class="txt2">
                         <p>동시대성</p>
@@ -233,9 +292,7 @@
                         <div class="circle">
                             <svg class="progress-circle" height="266" width="266"><ellipse cx="133" cy="133" rx="132" ry="132"></ellipse></svg></div>
                         <div class="txt">
-                            <div class="txt-inner">
-                                <p>Satisfaction</p>
-                            </div>
+                            <p class="txt-inner">Satisfaction</p>
                         </div>
                     </div>
                     <div class="txt2">
