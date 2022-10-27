@@ -9,6 +9,10 @@
 
 /* 메인 영역 */
 
+.main.m1 {
+    height: 800px;
+}
+
 .main img {
     /* position: absolute; */
     width: 100%;
