@@ -2,12 +2,109 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">        <link rel="icon" href="./files/Weblogo.png" />
-        <link rel="stylesheet" href="./css/main.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">        
     <title>Brand</title>
     <link rel="icon" href="./files/Weblogo.png" />
     <link rel="stylesheet" href="./css/main.css" />
 </head>
+
+
+<!-- brand.css 제작 -->
+<style>
+    
+    .ct1{
+        /* position: absolute; */
+        /* flex: 1;
+        top: 50%;
+        left: 50%; 
+        transform: translate(-50%,-50%);
+        line-height: 1.5; */
+    }
+ 
+    /* .typing { */
+    /* display: inline-block; */
+    /* font-size: 80px; */
+    /* color: #fff; */
+    /* line-height: 1; */
+    /* font-weight: 400; */
+    /* margin-bottom: 30px; */
+    /* letter-spacing: 0;  */
+     /* } */
+
+    .typing-txt{
+        font-size: 80px;
+        text-align: center;
+    }
+
+    .circle {
+        fill:none;
+        stroke:#DC272D;
+        stroke-width:1; 
+    }
+
+    .cont1{
+        width: 100%;
+    }
+
+    .section{
+        top: 50%;
+        left: 50%; 
+        transform: translateY(70%);
+    }
+    .cTit{
+        font-size: 23px;
+        color: #DC272D;
+        text-align: center;
+        margin-bottom: 55px;
+        font-weight: 400;
+        line-height: 1;
+        letter-spacing: 0;
+    }
+
+    .section>p{
+        font-size: 27px;
+        color: #DC272D;
+        line-height: 44px;
+        font-weight: 500;
+    }
+
+    /* _____________________ */
+
+    .cont2{
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+
+    }
+
+    .txt-inner .p {
+    display: block;
+    /* margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px; */
+    }
+
+    .circle{
+    /* position: relative; */
+    /* top: calc(100% + 50px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    opacity: 0; */
+
+    }
+    
+    .txt-inner{
+        position: absolute;
+        top: 180%
+        /* left: 50%;
+        transform: translateX(-50%);   */
+    }
+</style>
+
 <body>
      <!-- 1. 상단 -->
      <div id="top">
@@ -65,17 +162,17 @@
     <div id="cont">
         <!-- 2-1 상단 슬라이드 내용 -->
         <main class="cont ibx">
-            <div class="main">
+            <div class="main ct1">
                 <div class="txts">
                     <div class="pc_txt">
                         <h2 class="typing-txt"> Follow Your Intuition</h2>
-                        <!-- <p class="typing"> Follow Your Intuition</p> -->
+                        <p class="typing"> Follow Your Intuition</p>
                     </div>
-                    <div class="mo_txt">
+                    <!-- <div class="mo_txt">
                         <p id="sec2title1"><span class="Typewriter__wrapper"> Follow </span></p><p class="typing2"> Follow </p>
-                        <!-- <p id="sec2title2"><span class="Typewriter__wrapper">Your Intuition</span></p><p class="typing3">Your Intuition</p> -->
+                        <p id="sec2title2"><span class="Typewriter__wrapper">Your Intuition</span></p><p class="typing3">Your Intuition</p>
                         <span>
-                    </span></div>
+                    </span></div> -->
                     <h3>통찰력을 바탕으로 명료한 제품을 만듭니다</h3>
                 </div>
                 <div class="logo-bottom">
@@ -87,17 +184,16 @@
         </main>
         <!-- 브랜드 설명1 -->
         <main class="cont ibx">
-            <div class="main cont">
+            <div class="main cont1">
                 <div class="section">
-                    <h4 >Philosophy</h4>
+                    <h4 class="cTit">Philosophy</h4>
                     <p>토코보는 본질을 중시하며, 직관을 바탕으로 만든 브랜드 입니다.<br> 당신은 직감적으로 좋은 제품을 알아봅니다.<br><br>토코보 팀의 뷰티 인사이트는 과거부터 현재까지 계속 업데이트되고 있으며<br> 전 제품에는 아름다움에 대한 통찰이 담겨있습니다 .</p>
                     <!-- <p data-aos="fade-up" data-aos-duration="3000" class="mo aos-init aos-animate">토코보는 본질을 중시하며,<br> 직관을 바탕으로 만든 브랜드 입니다.<br> 당신은 직감적으로 좋은 제품을 알아봅니다.<br><br>토코보 팀의 뷰티 인사이트는 <br>과거부터 현재까지 계속 업데이트되고 있으며<br> 전 제품에는 아름다움에 대한 통찰이<br> 담겨있습니다 .</p> -->
                 </div>
             </div>
         </main>
         <!-- 브랜드 설명2 -->
-
-        <!-- style="fill:none;stroke:#DC272D;stroke-width:1; -->
+        
         <main class="cont ibx">
             <div class="main cont2">
                 <div class="circles c1">
