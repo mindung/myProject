@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">        
+    <title>Brand</title>
+    <link rel="icon" href="./files/Weblogo.png" />
+    <link rel="stylesheet" href="./css/main.css" />
+</head>
+
+
+<!-- brand.css 제작 -->
+<style>
+    
+    .ct1{
+        position: relative;
+        width: 100%;    
+        background: #DC272D;
+    }
+
+    .cont.ibx:first-child{
+        color: #FFF;
+    }
+
+    .ctBx{
+        position: absolute;
+        transform: translate(39%, 130%)
+    }
+    .txts, .logo-bottom{
+        /* position: absolute; */
+        top: 50%;
+        text-align: center;
+        
+    }
+    .txts{
+        top: 50%;
+    }
+    
+    .logo-bottom{
+        top: 70%;
+        left: 50%;
+    }
+    /* .typing { */
+    /* display: inline-block; */
+    /* font-size: 80px; */
+    /* color: #fff; */
+    /* line-height: 1; */
+    /* font-weight: 400; */
+    /* margin-bottom: 30px; */
+    /* letter-spacing: 0;  */
+     /* } */
+
+    .typing-txt, .typing{
+        font-size: 80px;
+        text-align: center;
+    }
+
+    .typing{
+        /* 임시로 일단 안보이게 해놓음 */
+        display: none;
+    }
+
+    .contText{
+        padding-top: 60px;
+        font-size: 27px;
+        color: #fff;
+        font-weight: 400;
+        line-height: 1;
+        /* opacity: 0; */
+    }
+
+    .logo-bottom p {
+    font-size: 32px;
+    color: #fff;
+    line-height: 43px;
+    text-align: center;
+    letter-spacing: 0;
+    font-family: 'Source Serif Pro',serif;
+    font-weight: 300;
+    font-style: italic;
+}
+    /* ___________________________________ */
+    .circle {
+        fill:none;
+        stroke:#DC272D;
+        stroke-width:1; 
+    }
+
+    .cont1{
+        width: 100%;
+    }
+
+    .section{
+        top: 50%;
+        left: 50%; 
+        transform: translateY(70%);
+    }
+    .cTit{
+        font-size: 23px;
+        color: #DC272D;
+        text-align: center;
+        margin-bottom: 55px;
+        font-weight: 400;
+        line-height: 1;
+        letter-spacing: 0;
+    }
+
+    .section>p{
+        font-size: 27px;
+        color: #DC272D;
+        line-height: 44px;
+        font-weight: 500;
+    }
+
+    /* _____________________ */
+
+    .cont2{
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 100%;
+
+    }
+
+    .txt-inner .p {
+    /* display: block; */
+    /* margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px; */
+    }
+
+    .circle{
+    /* position: relative; */
+    /* top: calc(100% + 50px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    opacity: 0; */
+
+    }
+    
+    .txt-inner{
+        display: inline-block;
+        font-size: 30px;
+        font-weight: 400;
+        color: #DC272D;
+        text-align: center;
+        top: -50px;
+        /* opacity: 0; */
+        font-family: 'Source Serif Pro',serif;
+        font-weight: 600;
+        font-style: italic;
+        
+    }
+    
+    .txt-inner {
+        width: 100%;
+        height: 100%;    
+        background-color: #DC272D;
+    }
+    /*  _____________________  */
+    .main.cont2{
+        background-color: #EEF8ff;
+    }
+</style>
+
+<body>
+     <!-- 1. 상단 -->
+     <div id="top">
+        <header class="top ibx">
+            <div class="cbx col-5">
+                <nav class="gnb">
+                    <ul>
+                        <li>
+                            <a href="#">Brand</a>
+                        </li>
+                        <li>
+                            <a href="#">Shop</a>
+                        </li>
+                        <li>
+                            <a href="#">Promotion</a>
+                        </li>
+                        <li>
+                            <a href="#">Community</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="cbx col-2">
+                <div class="logo">
+                    <img src="./files/logo.svg" alt="로고" />
+                </div>
+            </div>
+            <div class="cbx col-5">
+                <div class="menu">
+                    <a href=""
+                        ><img
+                            src="https://tocobo.cafe24.com/wib/img/icon/icon_language.svg"
+                            alt="언어"
+                    /></a>
+                    <a href=""
+                        ><img
+                            src="https://tocobo.cafe24.com/wib/img/icon/icon_search.svg"
+                            alt="검색"
+                    /></a>
+                    <a href=""
+                        ><img
+                            src="https://tocobo.cafe24.com/wib/img/icon/icon_myp.svg"
+                            alt="마이페이지"
+                    /></a>
+                    <a href=""
+                        ><img
+                            src="https://tocobo.cafe24.com/wib/img/icon/icon_cart.svg"
+                            alt="장바구니"
+                    /></a>
+                </div>
+            </div>
+        </header>
+    </div>
+    <!-- 메인 -->
+    <div id="cont">
+        <!-- 2-1 상단 슬라이드 내용 -->
+        <main class="cont ibx">
+            <div class="main ct1">
+                <div class="ctBx">
+                    <div class="txts">
+                        <div class="pc_txt">
+                            <h2 class="typing-txt"> Follow Your Intuition</h2>
+                            <p class="typing"> Follow Your Intuition</p>
+                        </div>
+                        <!-- <div class="mo_txt">
+                            <p id="sec2title1"><span class="Typewriter__wrapper"> Follow </span></p><p class="typing2"> Follow </p>
+                            <p id="sec2title2"><span class="Typewriter__wrapper">Your Intuition</span></p><p class="typing3">Your Intuition</p>
+                            <span>
+                        </span></div> -->
+                        <h3 class="contText">통찰력을 바탕으로 명료한 제품을 만듭니다</h3>
+                    </div>
+                    <div class="logo-bottom">
+                        <p>#Insight</p>
+                        <p>#Intuition</p>
+                    </div>
+    
+                </div>
+            </div>
+        </main>
+        <!-- 브랜드 설명1 -->
+        <main class="cont ibx">
+            <div class="main cont1">
+                <div class="section">
+                    <h4 class="cTit">Philosophy</h4>
+                    <p>토코보는 본질을 중시하며, 직관을 바탕으로 만든 브랜드 입니다.<br> 당신은 직감적으로 좋은 제품을 알아봅니다.<br><br>토코보 팀의 뷰티 인사이트는 과거부터 현재까지 계속 업데이트되고 있으며<br> 전 제품에는 아름다움에 대한 통찰이 담겨있습니다 .</p>
+                    <!-- <p data-aos="fade-up" data-aos-duration="3000" class="mo aos-init aos-animate">토코보는 본질을 중시하며,<br> 직관을 바탕으로 만든 브랜드 입니다.<br> 당신은 직감적으로 좋은 제품을 알아봅니다.<br><br>토코보 팀의 뷰티 인사이트는 <br>과거부터 현재까지 계속 업데이트되고 있으며<br> 전 제품에는 아름다움에 대한 통찰이<br> 담겨있습니다 .</p> -->
+                </div>
+            </div>
+        </main>
+        <!-- 브랜드 설명2 -->
+        
+        <main class="cont ibx">
+            <div class="main cont2">
+                <div class="circles c1">
+                    <div class="circle-txt-box">
+                        <div class="circle">
+                            <svg class="progress-circle" height="266" width="266"><ellipse cx="133" cy="133" rx="132" ry="132"></ellipse></svg></div>
+                        <div class="txt">
+                                <p  class="txt-inner">Clarity</p>
+                        </div>
+                    </div>
+                    <div class="txt2">
+                        <p>명료성</p>
+                        <span>한눈에 좋은 제품을 파악할 수 있도록<br>직관적으로 기획합니다.</span>
+                    </div>
+                </div>
+
+                <div class="circles c2">
+                    <div class="circle-txt-box">
+                        <div class="circle">
+                            <svg class="progress-circle" height="266" width="266"><ellipse cx="133" cy="133" rx="132" ry="132"></ellipse></svg></div>
+                        <div class="txt">
+                            <p class="txt-inner">Modernity</p>
+                         </div>  
+                    </div>
+                    <div class="txt2">
+                        <p>동시대성</p>
+                        <span>트렌드와 니즈를<br>빠르게 캐치하여 제작합니다.</span>
+                    </div>
+                </div>
+
+                <div class="circles c3">
+                    <div class="circle-txt-box ">
+                        <div class="circle">
+                            <svg class="progress-circle" height="266" width="266"><ellipse cx="133" cy="133" rx="132" ry="132"></ellipse></svg></div>
+                        <div class="txt">
+                            <p class="txt-inner">Satisfaction</p>
+                        </div>
+                    </div>
+                    <div class="txt2">
+                        <p>만족감</p>
+                        <span>제품력과 정서적 만족감<br>두가지를 모두 충족합니다.</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    
+</body>
+</html>
